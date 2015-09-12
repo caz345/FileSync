@@ -1,1 +1,7 @@
 ﻿Allow machines to spot each other over LAN
+	Add another screen to display listening machines
+	Create button on main screen to show new screen
+	Add listening class
+	Add calling class
+		Attempt to call all ips on network on port
+		Display listening computers on new screen
