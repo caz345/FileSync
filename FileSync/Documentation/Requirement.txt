@@ -1,0 +1,1 @@
+﻿Allow machines to spot each other over LAN
