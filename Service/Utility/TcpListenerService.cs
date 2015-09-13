@@ -9,31 +9,17 @@ using System.Threading.Tasks;
 
 namespace Service.Utility
 {
-    public class TcpListenerService
+    public static class TcpListenerService
     {
-        int _port;
-        TcpListener server;
-        public TcpListenerService(int port)
+        public static void startListening(int port)
         {
-            _port = port;
-            server = new TcpListener(IPAddress.Parse("127.0.0.1"), _port);
-
-        }
-
-        public Thread startListening()
-        {
-            
+            var server = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
             server.Start();
-            var serverThread = new Thread(() =>
+            while(true)
             {
-                while(true)
-                {
-                    var connection = server.AcceptTcpClient();
-                }
-            });
-            serverThread.IsBackground = true;
-            serverThread.Start();
-            return serverThread;
+                var connection = server.AcceptTcpClient();
+                //Start Controller
+            }            
         }
     }
 }
